@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Minimalista</title>
+    <link rel="stylesheet" href="css/Calendario.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Agregamos el div para la pantalla de carga -->
+    <div class="pantalla-carga">
+        <span class="loader"></span>
+    </div>
+
+    
+    <div class="contenedor-app">
+        <header class="cabecera-app">
+            <h1 class="logo">Calendario</h1>
+            <div class="controles-cabecera">
+                <button id="botonAnterior" class="boton-navegacion"><span class="material-icons">chevron_left</span></button>
+                <h2 id="vistaActual">Diciembre 2024</h2>
+                <button id="botonSiguiente" class="boton-navegacion"><span class="material-icons">chevron_right</span></button>
+                <button id="botonHoy" class="boton-hoy">Hoy</button>
+                <select id="selectorVista" class="selector-vista">
+                    <option value="mes">Mes</option>
+                    <option value="año">Año</option>
+                </select>
+                <button id="botonCrearEvento" class="boton-crear">Crear</button>
+            </div>
+        </header>
+
+        <div class="contenedor-principal">
+            <div id="vistaAño" class="vista-año oculto"></div>
+            <div id="vistaMes" class="vista-mes">
+                <div class="cabecera-dias-semana">
+                    <div>D</div>
+                    <div>L</div>
+                    <div>M</div>
+                    <div>M</div>
+                    <div>J</div>
+                    <div>V</div>
+                    <div>S</div>
+                </div>
+                <div id="cuadriculaCalendario" class="cuadricula-calendario"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalEvento" class="modal">
+        <div class="contenido-modal">
+            <div class="cabecera-modal">
+                <h3 id="tituloModal">Nuevo Evento</h3>
+                <button id="botonCerrarModal" class="boton-cerrar">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="cuerpo-modal">
+                <input type="date" id="fechaEvento">
+                <input type="text" id="tituloEvento" placeholder="Título">
+                <input type="time" id="horaEvento">
+                <textarea id="descripcionEvento" placeholder="Descripción"></textarea>
+            </div>
+            <div class="pie-modal">
+                <button id="botonEliminarEvento" class="boton-eliminar oculto">Eliminar</button>
+                <button id="botonGuardarEvento" class="boton-primario">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor-app">
+        <p>Jose Miguel Olivo Zabaleta <br>
+        <span>Carlos Alberto Carmona Miranda</span>
+    </div>
+
+    <script src="js/Calendario.js"></script>
+</body>
+</html>
+

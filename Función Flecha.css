@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #4a148c, #311b92, #1a237e);
+    background-size: 400% 400%;
+    animation: fondoGradiente 15s ease infinite;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes fondoGradiente {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.elementos-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.onda {
+    position: absolute;
+    background: linear-gradient(45deg, #9575cd, transparent);
+    border-radius: 50%;
+}
+
+.onda-1 {
+    width: 1200px;
+    height: 1200px;
+    top: -60%;
+    left: -30%;
+    animation: onda 20s infinite linear;
+}
+
+.onda-2 {
+    width: 1000px;
+    height: 1000px;
+    bottom: -40%;
+    right: -20%;
+    animation: onda 15s infinite linear reverse;
+}
+
+@keyframes onda {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.patron-cuadricula {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.2;
+}
+
+.particulas-flotantes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.particulas-flotantes::before,
+.particulas-flotantes::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    animation: flotar 15s infinite ease-in-out;
+}
+
+.particulas-flotantes::before {
+    left: 10%;
+    top: 20%;
+}
+
+.particulas-flotantes::after {
+    right: 15%;
+    bottom: 30%;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(20px, -20px); }
+}
+
+.contenedor {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.2),
+        0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    max-width: 400px;
+    width: 100%;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contenedor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #7b1fa2, #9c27b0);
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+p {
+    color: #e1bee7;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 300;
+}
+
+button {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    background: linear-gradient(45deg, #7b1fa2, #6a1b9a);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(123, 31, 162, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(45deg, #6a1b9a, #4a148c);
+    box-shadow: 
+        0 8px 25px rgba(123, 31, 162, 0.4),
+        0 4px 10px rgba(123, 31, 162, 0.2);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(30deg);
+    transition: 0.6s;
+    opacity: 0;
+}
+
+button:hover::after {
+    opacity: 1;
+    transform: rotate(30deg) translate(50%, -50%);
+}
+
+.salida {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.salida.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos para el contenedor de la pantalla de carga */
+.pantalla-carga {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #4a148c, #311b92, #1a237e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+/* Clase para ocultar la pantalla de carga */
+.pantalla-carga.oculta {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Estilos para el spinner de carga */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ffffff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+/* Animación de rotación para el spinner */
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+

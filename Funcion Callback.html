@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Mejorado</title>
+    <link rel="stylesheet" href="css/Funcion Callback.css">
+</head>
+<body>
+    <!-- Pantalla de carga inicial -->
+    <div id="initialLoadingScreen" class="loading-screen show">
+        <div class="loader" aria-label="Cargando..."></div>
+    </div>
+
+    <div id="mainContent" class="container" style="display: none;">
+        <h1>Demostración de Callback</h1>
+        <input type="text" id="nameInput" placeholder="Ingresa tu nombre">
+        <button onclick="procesarDatos(mostrarMensaje)">Mostrar Mensaje</button>
+        <p id="message"></p>
+    </div>
+
+    <script src="js/Funcion Callback.js"></script>
+</body>
+</html>
+

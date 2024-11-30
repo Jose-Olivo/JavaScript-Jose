@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #6d0000, #66017a, #14ccda);
+    background-size: 400% 400%;
+    animation: gradientBG 5s ease infinite;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.background-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.wave {
+    position: absolute;
+    opacity: 0.3;
+}
+
+.wave-1 {
+    width: 1200px;
+    height: 1200px;
+    top: -60%;
+    left: -30%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    animation: wave 20s infinite linear;
+}
+
+.wave-2 {
+    width: 1000px;
+    height: 1000px;
+    bottom: -40%;
+    right: -20%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    animation: wave 15s infinite linear reverse;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.grid-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.2;
+}
+
+.floating-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.2),
+        0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    max-width: 400px;
+    width: 100%;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(45deg, #6d0000, #66017a, #14ccda);
+    background-size: 400% 400%;
+    animation: gradientBG 5s ease infinite;
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+p {
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+button {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    background: linear-gradient(45deg, #6d0000, #66017a, #14ccda);
+    background-size: 400% 400%;
+    animation: gradientBG 5s ease infinite;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(30deg);
+    transition: 0.6s;
+    opacity: 0;
+}
+
+button:hover::after {
+    opacity: 1;
+    transform: rotate(30deg) translate(50%, -50%);
+}
+
+.output {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.output.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contenedor principal de la pantalla de carga */
+.pantalla-carga {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #6d0000, #66017a, #14ccda);
+    background-size: 400% 400%;
+    animation: gradientBG 5s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+/* Clase para ocultar la pantalla de carga */
+.pantalla-carga.oculta {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Animación del loader */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ffffff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
