@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computecnicos - Productos Electrónicos</title>
+    <!-- Enlace al archivo CSS para los estilos -->
+    <link rel="stylesheet" href="CSS/Pagina principal.css">
+</head>
+<body>
+    <!-- Encabezado de la página -->
+    <header>
+        <h1>Computecnicos</h1>
+    </header>
+    <!-- Barra de navegación -->
+    <nav>
+        <ul>
+            <!-- Enlaces para filtrar productos por categoría -->
+            <li><a href="#" id="todos">Todos</a></li>
+            <li><a href="#" id="computadoras">Computadoras</a></li>
+            <li><a href="#" id="smartphones">Smartphones</a></li>
+            <li><a href="#" id="accesorios">Accesorios</a></li>
+            <li><a href="#" id="Equipo de sonido">Equipo de sonido</a></li>
+        </ul>
+    </nav>
+    <!-- Contenido principal -->
+    <main>
+        <!-- Barra de búsqueda -->
+        <div class="buscador">
+            <input type="text" id="busqueda" placeholder="Buscar productos...">
+            <button onclick="buscarProductos()">Buscar</button>
+        </div>
+        <!-- Sección donde se mostrarán los productos -->
+        <section class="productos" id="productos">
+            <!-- Los productos se cargarán dinámicamente con JavaScript -->
+        </section>
+    </main>
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2023 Computecnicos. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Enlace al archivo JavaScript para la funcionalidad -->
+    <script src="JS/Pagina principal.js"></script>
+</body>
+</html>
